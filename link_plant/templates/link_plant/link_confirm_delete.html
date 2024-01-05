@@ -1,0 +1,17 @@
+{% extends "link_plant/_base.html" %}
+
+{% block content %}
+  <h1 class="text-2xl">Are you sure you want to delete?</h1>
+  <ul>
+    <li>{{ link.text }}</li>
+    <li>{{ link.url }}</li>
+  </ul>
+  <hr class="my-8">
+  <form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Delete" class="px-5 py-2 rounded bg-red-200 hover:bg-red-300 hover:cursor-pointer mr-1">
+    <a class="px-5 py-2 rounded bg-gray-200 hover:bg-gray-300 hover:cursor-pointer inline-block" href="{% url 'link-list' %}">
+      Cancel
+    </a>
+  </form>
+{% endblock content %}
